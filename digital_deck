@@ -1,0 +1,36 @@
+'''
+itertools,random.shuffle(),product,str(),int()
+'''
+#deck shuffler
+import itertools
+import random
+
+
+card_suit=['♣', '♦','♥','♠']
+card_number=[str(x) for x in range(1, 11)] + ['J','Q','K']
+
+
+deck = list(itertools.product(card_suit, card_number))
+'''
+deck=[]
+for n in card_number:
+    for s in card_suit:
+        print('before', deck)
+        print('n+s', n+s)
+        
+        deck = deck + [n+s]
+        print('after' ,deck)
+'''        
+
+random.shuffle(deck)
+
+
+while(True):
+    user_input=input('print which card you would like to see-1 is the top,52 is the bottom-print s to stop')
+    if user_input=='s':
+        break        
+    
+    index_num = int(user_input)
+    #if index_num < 53 and index_num > 0:
+    if (index_num in range(1,53)):   
+        print(deck[index_num-1])
